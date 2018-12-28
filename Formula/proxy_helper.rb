@@ -1,9 +1,9 @@
 class ProxyHelper < Formula
   desc "Helper for constructing proxy environment variables"
   homepage "https://github.com/takumaw/proxy_helper"
-  url "https://github.com/takumaw/proxy_helper/archive/0.0.1.tar.gz"
-  version "0.0.1"
-  sha256 "da8b6196e18e29a692f64dc9858307bb587f66560289f1aa3bfca152d8f7b218"
+  url "https://github.com/takumaw/proxy_helper/archive/0.0.2.tar.gz"
+  version "0.0.2"
+  sha256 "bf03b4e09722d692ec945cd850001e213fa161bae8f3599b00d943a198acd758"
   head "https://github.com/takumaw/proxy_helper.git"
 
   depends_on "automake" => :build
