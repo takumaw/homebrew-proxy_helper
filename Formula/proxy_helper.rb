@@ -1,37 +1,31 @@
 class ProxyHelper < Formula
   desc "Helper for constructing proxy environment variables"
   homepage "https://github.com/takumaw/proxy_helper"
-  url "https://github.com/takumaw/proxy_helper/archive/0.0.4.tar.gz"
-  version "0.0.4"
-  sha256 "ec26ca9680996450ee828a3160411a73cdf710e9615027d7858a48c80275f2db"
+  url "https://github.com/takumaw/proxy_helper/releases/download/v0.1.0/proxy_helper-v0.1.0-macOS.tar.gz"
+  version "0.1.0"
+  sha256 "488f697ca7f53d7bb97d13584e71dd144686dba66a48418573b267756f085fdd"
   head "https://github.com/takumaw/proxy_helper.git"
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-
   def install
-    system "aclocal"
-    system "automake", "--add-missing"
-    system "autoconf"
-    system "./configure", "--prefix=#{prefix}"
-    system "env", "SWIFTBBUILDFLAGS=--disable-sandbox", "make", "install"
+    libexec.install "bin/proxy_helper"
+    man8.install "share/man/man8/proxy_helper.8"
   end
 
   def caveats; <<~EOS
     proxy_helper has been installed at
 
-      #{HOMEBREW_PREFIX}/opt/proxy_helper/libexec/proxy_helper
+      #{opt_libexec}/proxy_helper
 
     You can enable proxy_helper by adding the following code snippet to
     your `/etc/profile` for BASH, or `/etc/zprofile` for ZSH:
 
-      if [ -x #{HOMEBREW_PREFIX}/opt/proxy_helper/libexec/proxy_helper ]; then
-          eval `#{HOMEBREW_PREFIX}/opt/proxy_helper/libexec/proxy_helper -s`
+      if [ -x #{opt_libexec}/proxy_helper ]; then
+          eval `#{opt_libexec}/proxy_helper -s`
       fi
   EOS
   end
 
   test do
-    system "make", "check"
+    system "#{libexec}/proxy_helper", "-s"
   end
 end
