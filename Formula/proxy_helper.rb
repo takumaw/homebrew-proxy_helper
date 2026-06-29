@@ -1,13 +1,13 @@
 class ProxyHelper < Formula
   desc "Helper for constructing proxy environment variables"
   homepage "https://github.com/takumaw/proxy_helper"
-  url "https://github.com/takumaw/proxy_helper/releases/download/v0.1.0/proxy_helper-v0.1.0-macOS.tar.gz"
-  version "0.1.0"
-  sha256 "488f697ca7f53d7bb97d13584e71dd144686dba66a48418573b267756f085fdd"
+  url "https://github.com/takumaw/proxy_helper/releases/download/v0.2.0/proxy_helper-v0.2.0-macOS.tar.gz"
+  version "0.2.0"
+  sha256 "7b4ba0da0ec9bbd7fe2c148528b90501edb588b594f2e3e3b441d7db3831523b"
   head "https://github.com/takumaw/proxy_helper.git"
 
   def install
-    libexec.install "bin/proxy_helper"
+    libexec.install "libexec/proxy_helper"
     man8.install "share/man/man8/proxy_helper.8"
   end
 
